@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rg:PopupPage  xmlns:rg="http://rotorgames.com" 
+               xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms" 
+               xmlns:vm="clr-namespace:otp.ViewModels"
+               xmlns:Res="clr-namespace:otp.Resources"
+               xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+               x:Class="otp.Pages.ProviderPopUp">
+    <rg:PopupPage.BindingContext>
+        <vm:ServiceMapViewModel></vm:ServiceMapViewModel>
+    </rg:PopupPage.BindingContext>
+
+    <!--You can set an animation in the xaml file or in the csharp code behind-->
+    <rg:PopupPage.Animation>
+        <rg:ScaleAnimation 
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinInOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </rg:PopupPage.Animation>
+    <!--You can use any elements here which are extended from Xamarin.Forms.View-->
+    
+        
+   
+    <yummy:PancakeView  Style="{StaticResource ServiceBoxProvider}"
+                        
+                       
+        VerticalOptions="EndAndExpand" 
+        HorizontalOptions="CenterAndExpand" 
+        HeightRequest="450"
+        WidthRequest="250"
+                        
+        
+        Padding="20, 20, 20, 0">
+        <yummy:PancakeView.Border>
+            <yummy:Border Color="White" Thickness="3"
+           ></yummy:Border>
+        </yummy:PancakeView.Border>
+        
+        <Grid RowSpacing="20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+             
+            </Grid.RowDefinitions>
+            <Label HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Style="{StaticResource lblBigTitle}"
+                   Text="{Binding CurrentProvider.ServiceName}"></Label>
+            <yummy:PancakeView CornerRadius="80" 
+                               HorizontalOptions="CenterAndExpand" Grid.Row="1" >
+                <yummy:PancakeView.Border>
+                    <yummy:Border Color="White" Thickness="3"></yummy:Border>
+                </yummy:PancakeView.Border>
+                <yummy:PancakeView.Shadow>
+                    <yummy:DropShadow ></yummy:DropShadow>
+                </yummy:PancakeView.Shadow>
+                <Image 
+                               Aspect="Fill"
+			                WidthRequest="120" HeightRequest="120" 
+			               Source = "{Binding CurrentProvider.ImageName}">
+                </Image>
+            </yummy:PancakeView>
+
+
+            <Label HorizontalOptions="CenterAndExpand" 
+                   HorizontalTextAlignment="Center" Grid.Row="2" Style="{StaticResource lblTitle}"
+                   Text="{Binding CurrentProvider.ProviderName}"></Label>
+
+            <rating:SfRating  Grid.Row="3" HorizontalOptions="Center" Precision="Half" ItemCount="5" 
+              ReadOnly="true" ItemSize="20" Value="{Binding CurrentProvider.ratting}" >
+                <rating:SfRating.RatingSettings>
+                    <rating:SfRatingSettings RatedFill="Gold" UnRatedFill="White" />
+                </rating:SfRating.RatingSettings>
+            </rating:SfRating>
+
+
+
+
+
+            <Grid Grid.Row="4" HorizontalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            
+
+             
+                <Label Grid.Row="1" Text="{Res:Translate lblArea}"
+                       FontFamily="DG"
+                       TextColor="#FF9228"></Label>
+                <Label Grid.Row="1" Grid.Column="1" 
+                       
+                        FontFamily="DG"
+                       FontSize="20"
+                       HorizontalTextAlignment="Center" 
+                       VerticalTextAlignment="Center" Text="{Binding CurrentProvider.Area}"
+                       Style="{StaticResource lblValueNormal}"></Label>
+            </Grid>
+                <StackLayout Grid.Row="5" Spacing="20" Orientation="Horizontal" 
+                             VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Button Grid.Row="3" Text="{Res:Translate btnRequest}"
+                     Style="{StaticResource btnSecandry}"
+                        Command="{Binding RequestService}"></Button>
+
+                    <Button Grid.Row="3" Grid.Column="1" 
+                            TextColor="Black"
+                        BorderWidth="1"
+                        BorderColor="#FF9228"
+                         FontFamily="DG"
+                        CornerRadius="30"
+                        BackgroundColor="White" Command="{Binding Discard }" Text="{Res:Translate btnDiscard}"></Button>
+                </StackLayout>
+           
+           
+         
+               
+
+
+        </Grid>
+    </yummy:PancakeView>
+   
+</rg:PopupPage >

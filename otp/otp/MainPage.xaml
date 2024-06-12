@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Control:Custompage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Control="clr-namespace:otp.Controls" 
+                    xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
+                    Title="home page"
+             x:Class="otp.MainPage"
+                    x:Name="page">
+    <navigationdrawer:SfNavigationDrawer x:Name="navigationDrawer" 
+                                         DrawerWidth ="300" 
+                                         Position="Right"
+                                         DrawerHeaderHeight="160">
+        <navigationdrawer:SfNavigationDrawer.ContentView>
+            <Grid x:Name="mainContentView" 
+                  BackgroundColor="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackLayout BackgroundColor="#1aa1d6" 
+                             Orientation="Vertical">
+                    <Control:ToolBar  HasBackButton="False" MenuClick="ToolBar_MenuClick" Title="{Binding Title,Source={x:Reference page } }"></Control:ToolBar>
+
+                    <Button Clicked="Button_Clicked"></Button>
+                </StackLayout>
+                <Label Grid.Row="1" 
+                       x:Name="contentLabel" 
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Center" 
+                       Text="Content View" 
+                       FontSize="14" 
+                       TextColor="Black"/>
+            </Grid>
+        </navigationdrawer:SfNavigationDrawer.ContentView>
+        <navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
+            <Grid BackgroundColor="#1aa1d6">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="120"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Image Source="user.png" 
+                       HeightRequest="110" 
+                       Margin="0,10,0,0" 
+                       BackgroundColor="#1aa1d6" 
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Center"/>
+                <Label Text="James Pollock" 
+                       Grid.Row="1" 
+                       HorizontalTextAlignment="Center" 
+                       HorizontalOptions="Center" 
+                       FontSize="20" 
+                       TextColor="White"/>
+            </Grid>
+        </navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
+        <navigationdrawer:SfNavigationDrawer.DrawerContentView>
+            <StackLayout>
+                <Label Text="first item"></Label>
+            </StackLayout>
+        </navigationdrawer:SfNavigationDrawer.DrawerContentView>
+    </navigationdrawer:SfNavigationDrawer>
+
+    
+    
+
+</Control:Custompage>

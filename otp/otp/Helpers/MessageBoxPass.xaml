@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rg:PopupPage  xmlns:rg="http://rotorgames.com" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="otp.Helpers.MessageBoxPass">
+    <Grid HeightRequest="260" VerticalOptions="EndAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Frame Grid.RowSpan="2" HeightRequest="230" VerticalOptions="EndAndExpand" Padding="0,10,0,0" BackgroundColor="White" CornerRadius="30" >
+            <Grid>
+
+                <Image   HeightRequest="80" Margin="0,0,0,0" VerticalOptions="StartAndExpand"  WidthRequest="80" >
+                    <Image.Source>
+                        <FontImageSource Glyph="" Color="#F8E559" FontFamily="FontIconSolid"></FontImageSource>
+                    </Image.Source>
+                </Image>
+
+
+                <StackLayout Orientation="Vertical" Spacing="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Label Text="تحذير " TextColor="Red"  FontSize="20" FontFamily="DG" HorizontalOptions="CenterAndExpand" ></Label>
+                    <Label Text="كلمه المرور ليست متطابقه" FontFamily="DG"  TextColor="Red"></Label>
+                </StackLayout>
+                
+            </Grid>
+        </Frame>
+        <Label Text="حسنا " TextColor="White" FontSize="20" 
+               HorizontalTextAlignment="Center" BackgroundColor="#1C375C" FontFamily="DG" 
+               HeightRequest="45"
+               HorizontalOptions="FillAndExpand" Grid.Row="1"  >
+
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+            </Label.GestureRecognizers>
+        </Label>
+
+    </Grid>
+</rg:PopupPage >

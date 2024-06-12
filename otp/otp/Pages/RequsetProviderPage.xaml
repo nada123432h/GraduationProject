@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<control:Custompage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+               xmlns:Res="clr-namespace:otp.Resources"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:control="clr-namespace:otp.Controls" xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+                    x:Name="homepage"
+             x:Class="otp.Pages.RequsetProviderPage">
+
+    <xct:TabView
+              IsSwipeEnabled="False"
+                TabStripPlacement="Bottom"
+                Style="{StaticResource TavView1}">
+
+        <xct:TabViewItem
+               Text="{Res:Translate Text=lblOrders}"
+                     Style="{StaticResource TavView2}"
+                
+                     >
+            <xct:TabViewItem.Icon>
+                <FontImageSource Glyph="" Color="{DynamicResource BgColor}" FontFamily="FontIconSolid"></FontImageSource>
+            </xct:TabViewItem.Icon>
+            <Grid>
+                <RefreshView x:Name="rfreshview" IsRefreshing="{Binding IsRefreshing}"
+          Command="{Binding OnRefreshRequested}">
+
+                    <CollectionView ItemsSource="{Binding ListProvider}" >
+                        <CollectionView.Header>
+                            <StackLayout>
+                                <control:ToolBar  HeightRequest="80"  
+                                                  HasCartButton="False"
+                               Title="{Res:Translate Text=lblOrders}"></control:ToolBar>
+
+                            </StackLayout>
+
+                        </CollectionView.Header>
+
+
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"></LinearItemsLayout>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+
+                            <DataTemplate>
+
+
+                                <Grid ColumnSpacing="10" Padding="0,0,0,0">
+                      
+
+                                 
+
+
+                                    <yummy:PancakeView BackgroundColor="White"  x:Name="mainView" Grid.ColumnSpan="5" CornerRadius="30" Margin="10">
+                                        <yummy:PancakeView.Shadow >
+                                            <yummy:DropShadow Color="Black" Offset="10,10"></yummy:DropShadow>
+                                        </yummy:PancakeView.Shadow>
+                                        <yummy:PancakeView.Border>
+                                            
+                                            <yummy:Border Color="#E36414" Thickness="10">
+
+                                                <yummy:Border.GradientStops>
+                                                    <yummy:GradientStopCollection>
+                                                        <yummy:GradientStop Color="Orange" Offset="0"></yummy:GradientStop>
+                                                        <yummy:GradientStop Color="#000000" Offset="1"></yummy:GradientStop>
+                                                        <yummy:GradientStop Color="#0F1035" Offset=".5"></yummy:GradientStop>
+                                                    </yummy:GradientStopCollection>
+                                                </yummy:Border.GradientStops>
+                                            </yummy:Border>
+                                        </yummy:PancakeView.Border>
+                                   
+                                        <StackLayout Padding="20" HorizontalOptions="FillAndExpand" Spacing="15">
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                                                <Label Text="{Res:Translate cuName}" FontFamily="DG" TextColor="#FF6C22" HorizontalOptions="StartAndExpand"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                                                <Label Text="{Binding CustomerName}"  TextColor="#18122B" FontSize="20" HorizontalOptions="EndAndExpand" VerticalTextAlignment="End"></Label>
+                                              
+                                             
+                                            </StackLayout>
+                                            <BoxView HeightRequest="2" BackgroundColor="Black" HorizontalOptions="FillAndExpand"></BoxView>
+                                            <!-- Add more rows as needed -->
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                                <Label Text="{Res:Translate cuEmail}"    TextColor="#FF6C22"  FontFamily="DG"  HorizontalOptions="StartAndExpand"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                                                <Label Text="{Binding CustomerEmail} "  HorizontalOptions="EndAndExpand" VerticalTextAlignment="End"></Label>
+                                              
+                                              
+                                            </StackLayout>
+                                            <BoxView HeightRequest="2" BackgroundColor="Black" HorizontalOptions="FillAndExpand"></BoxView>
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                                <Label Text="{Res:Translate cuPhone}"    TextColor="#FF6C22"  FontFamily="DG"  HorizontalOptions="StartAndExpand"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                                                <Label Text="{Binding CustomerPhone} "  HorizontalOptions="EndAndExpand" VerticalTextAlignment="End"></Label>
+
+
+                                            </StackLayout>
+                                            <BoxView HeightRequest="2" BackgroundColor="Black" HorizontalOptions="FillAndExpand"></BoxView>
+                                            <StackLayout  HorizontalOptions="FillAndExpand" >
+                                                <Label Text="{Res:Translate cuImage}" FontFamily="DG" TextColor="#FF6C22" HorizontalOptions="CenterAndExpand"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                                                <Image Source="{Binding ImageNameProblem}"  HorizontalOptions="FillAndExpand" ></Image>
+                                             
+
+                                            </StackLayout>
+                                            <BoxView HeightRequest="2" BackgroundColor="Black" HorizontalOptions="FillAndExpand"></BoxView>
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                                <Label Text="{Res:Translate cuDescriptions}" FontFamily="DG"  TextColor="#FF6C22"  HorizontalOptions="StartAndExpand"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                                                <Label Text="{Binding Descriptions}"   HorizontalOptions="EndAndExpand"  VerticalOptions="CenterAndExpand"  ></Label>
+                                              
+                                               
+                                            </StackLayout>
+                                            <BoxView HeightRequest="2" BackgroundColor="Black" HorizontalOptions="FillAndExpand"></BoxView>
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                                <Label Text="{Res:Translate cuDate}" FontFamily="DG"  TextColor="#FF6C22" HorizontalTextAlignment="Center" VerticalTextAlignment="End"></Label>
+                                                <Label Text="{Binding Date}" HorizontalOptions="EndAndExpand" VerticalTextAlignment="End"></Label>
+                                            
+
+                                            </StackLayout>
+                                            <yummy:PancakeView CornerRadius="30" Padding="0,0,0,0" BackgroundColor="#2292a4" HorizontalOptions="FillAndExpand" >
+                                                <yummy:PancakeView.Border>
+                                                    <yummy:Border Color="#18122B" Thickness="1">
+
+                                                    </yummy:Border>
+                                                </yummy:PancakeView.Border>
+                                                <StackLayout>
+                                                    <Label Text="تغيير اليوم" HorizontalOptions="CenterAndExpand" TextColor="White" FontFamily="DG" VerticalTextAlignment="Center"></Label>
+                                                    <DatePicker Margin="20,0,0,20" TextColor="#eef4d4"  Date="{Binding Date2, Mode=TwoWay}"  />
+                                                </StackLayout>
+                                                
+                                            </yummy:PancakeView>
+                                            <BoxView HeightRequest="2" BackgroundColor="Black" HorizontalOptions="FillAndExpand"></BoxView>
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                                <Label Text="{Res:Translate cuAddress}" FontFamily="DG"  TextColor="#FF6C22"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                                                <Label Text="{Binding Address}" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center"></Label>
+                                                
+                                               
+                                            </StackLayout>
+                                            <BoxView HeightRequest="2" BackgroundColor="Black" HorizontalOptions="FillAndExpand"></BoxView>
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                                <Label Text="{Res:Translate cuCost}" TextColor="#FF6C22" FontFamily="DG"  HorizontalOptions="StartAndExpand"   VerticalTextAlignment="Center"></Label>
+                                                <Label Text="{Binding Cost, StringFormat=' {0:F}ج.م'}" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center"></Label>
+                                            
+
+                                            </StackLayout>
+                                            <yummy:PancakeView CornerRadius="13" BackgroundColor="#2292a4"  HorizontalOptions="FillAndExpand" >
+                                                <yummy:PancakeView.Border>
+                                                    <yummy:Border Color="#18122B" Thickness="1">
+                                                        
+                                                    </yummy:Border>
+                                                </yummy:PancakeView.Border>
+                                                <Entry Text="{Binding  oRequestProviderModel.UpdatedCost, Mode=TwoWay, StringFormat=' {0:F}ج.م'}" PlaceholderColor="White" 
+                                                     
+                                                       HorizontalOptions="CenterAndExpand" Placeholder="تعديل السعر"
+                                                       Keyboard="Numeric"  VerticalTextAlignment="Center"></Entry>
+                                            </yummy:PancakeView>
+                                          
+                                            <BoxView HeightRequest="2" BackgroundColor="Black" HorizontalOptions="FillAndExpand"></BoxView>
+                                            <StackLayout Orientation="Horizontal" IsVisible="{Binding IsChoose}" HorizontalOptions="CenterAndExpand" Spacing="20">
+                                                <Button Text="{Res:Translate Rejected}" IsVisible="{Binding IsRegicted}" Command="{Binding BindingContext.Rejected, Source={x:Reference homepage}}" CommandParameter="{Binding}"   BackgroundColor="#AA3A3A" BorderWidth="3" BorderColor="#E8F9FD" TextColor="White" CornerRadius="15" FontFamily="DG"   ></Button>
+                                                <Button  Text="{Res:Translate Confirmed}" Command="{Binding BindingContext.Confirmed, Source={x:Reference homepage}}"  CommandParameter="{Binding}"  BackgroundColor="#21BF73" TextColor="White" BorderWidth="3" BorderColor="#E8F9FD"  CornerRadius="15"  FontFamily="DG"  ></Button>
+
+
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+
+
+                                                <Label Text="{Binding statusLabel}" FontSize="20" FontFamily="DG" TextColor="#65B741" HorizontalOptions="CenterAndExpand"   />
+
+                                                <Image  HorizontalOptions="EndAndExpand"   IsVisible="{Binding IsConfirmed}"
+                                          
+                                            >
+
+                                                    <Image.Source>
+                                                        <FontImageSource Glyph="" Color="#65B741" FontFamily="FontIconSolid"></FontImageSource>
+                                                    </Image.Source>
+
+                                                </Image>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </yummy:PancakeView>
+
+
+
+
+
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </RefreshView>
+            </Grid>
+            
+        </xct:TabViewItem>
+        <xct:TabViewItem
+               Text="{Res:Translate Text=lblChat}"
+                     Style="{StaticResource TavView2}"
+                    TapCommand="{Binding GoChat}"
+                     >
+            <xct:TabViewItem.Icon>
+                <FontImageSource Glyph="" Color="{DynamicResource BgColor}" FontFamily="FontIconSolid"></FontImageSource>
+            </xct:TabViewItem.Icon>
+
+        </xct:TabViewItem>
+        <xct:TabViewItem Style="{StaticResource TavView2}"
+            TapCommand="{Binding GotToProfile}"
+                          Text="{Res:Translate Text=lblProfile}"
+             
+                    FontSize="12"
+                  
+              
+                         
+                        
+              >
+            <xct:TabViewItem.Icon>
+                <FontImageSource Glyph="  " Color="{DynamicResource BgColor}" FontFamily="FontIconSolid"></FontImageSource>
+            </xct:TabViewItem.Icon>
+
+
+
+
+
+
+        </xct:TabViewItem>
+    </xct:TabView>
+
+</control:Custompage>

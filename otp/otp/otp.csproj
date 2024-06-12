@@ -1,0 +1,158 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\Daddy Rewind.ttf" />
+    <None Remove="Fonts\DG-Heaven-Thin.ttf" />
+    <None Remove="Fonts\Font Awesome 5 Brands-Regular-400.otf" />
+    <None Remove="Fonts\Font Awesome 5 Free-Regular-400.otf" />
+    <None Remove="Fonts\Font Awesome 5 Free-Solid-900.otf" />
+    <None Remove="Fonts\Helvetica Neue Medium Extended.ttf" />
+    <None Remove="Fonts\ionicons.ttf" />
+    <None Remove="Fonts\NotoNaskhArabic-Bold.ttf" />
+    <None Remove="Fonts\NotoNaskhArabic-Medium.ttf" />
+    <None Remove="Fonts\NotoNaskhArabic-Regular.ttf" />
+    <None Remove="Fonts\NotoNaskhArabic-SemiBold.ttf" />
+    <None Remove="Fonts\Sweet Shine dafont.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\Daddy Rewind.ttf" />
+    <EmbeddedResource Include="Fonts\DG-Heaven-Thin.ttf" />
+    <EmbeddedResource Include="Fonts\Font Awesome 5 Brands-Regular-400.otf" />
+    <EmbeddedResource Include="Fonts\Font Awesome 5 Free-Regular-400.otf" />
+    <EmbeddedResource Include="Fonts\Font Awesome 5 Free-Solid-900.otf" />
+    <EmbeddedResource Include="Fonts\Helvetica Neue Medium Extended.ttf" />
+    <EmbeddedResource Include="Fonts\ionicons.ttf" />
+    <EmbeddedResource Include="Fonts\NotoNaskhArabic-Bold.ttf" />
+    <EmbeddedResource Include="Fonts\NotoNaskhArabic-Medium.ttf" />
+    <EmbeddedResource Include="Fonts\NotoNaskhArabic-Regular.ttf" />
+    <EmbeddedResource Include="Fonts\NotoNaskhArabic-SemiBold.ttf" />
+    <EmbeddedResource Include="Fonts\Sweet Shine dafont.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.514" />
+    <PackageReference Include="akavache" Version="9.1.20" />
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="4.1.0" />
+    <PackageReference Include="FirebaseAuthentication.net" Version="4.1.0" />
+    <PackageReference Include="FreshMvvm" Version="4.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Plugin.Fingerprint" Version="2.1.5" />
+    <PackageReference Include="Plugin.StoreReview" Version="6.2.0" />
+    <PackageReference Include="Polly" Version="8.3.0" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.1.0" />
+    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="25.1.35" />
+    <PackageReference Include="Syncfusion.Xamarin.SfNavigationDrawer" Version="24.2.8" />
+    <PackageReference Include="Syncfusion.Xamarin.SfRating" Version="25.1.35" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.6" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2622" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
+    <PackageReference Include="Xamarin.Forms.GoogleMaps.Bindings" Version="3.0.0" />
+    <PackageReference Include="Xamarin.Forms.GoogleMaps.v2" Version="3.4.5" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+    <PackageReference Include="Xamarin.Plugin.SharedTransitions" Version="2.4.0" />
+    <PackageReference Include="Xamarin.Rating" Version="1.0.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Helpers\MsgSendToProvider.xaml.cs">
+      <DependentUpon>MsgSendToProvider.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Helpers\MsgSend.xaml.cs">
+      <DependentUpon>MsgSend.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Helpers\MsgDoneChange.xaml.cs">
+      <DependentUpon>MsgDoneChange.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Helpers\MsgDelete.xaml.cs">
+      <DependentUpon>MsgDelete.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Helpers\MsgxFormat.xaml.cs">
+      <DependentUpon>MsgxFormat.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Helpers\MsgxUsernameNotMatch.xaml.cs">
+      <DependentUpon>MsgxUsernameNotMatch.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Helpers\MsgxPassLength.xaml.cs">
+      <DependentUpon>MsgxPassLength.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Helpers\MsgxfForgetmailPhone.xaml.cs">
+      <DependentUpon>MsgxfForgetmailPhone.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Helpers\MsgxExist.xaml.cs">
+      <DependentUpon>MsgxExist.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Helpers\Resultsent.xaml.cs">
+      <DependentUpon>Resultsent.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Helpers\MsgxfForgetEmail.xaml.cs">
+      <DependentUpon>MsgxfForgetEmail.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\LoginProviderPage.xaml.cs">
+      <DependentUpon>LoginProviderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\ResetPasswordPage.xaml.cs">
+      <DependentUpon>ResetPasswordPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\ProviderPopUp.xaml.cs">
+      <DependentUpon>ProviderPopUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\AppResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Pages\ChatPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\ConnectionPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\EmptyListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\InfoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\IntroductionPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\ProfileProviderPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\RatePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\RequsetPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\RequsetProviderPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\SignUpPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\AppResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

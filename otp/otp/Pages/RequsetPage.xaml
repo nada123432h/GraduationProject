@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Controls="clr-namespace:otp.Controls" 
+               xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:Res="clr-namespace:otp.Resources"
+             xmlns:vm="clr-namespace:otp.ViewModels"
+             NavigationPage.HasNavigationBar="False"
+               xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             
+             xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
+            x:Name="page"
+           
+             
+             x:Class="otp.Pages.RequsetPage">
+    <ContentPage.BindingContext>
+        <vm:RequsetViewModel></vm:RequsetViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid   >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <BoxView Grid.RowSpan="9">
+                <BoxView.Background>
+                    <LinearGradientBrush>
+                        <GradientStopCollection>
+                            <GradientStop Color="#132238" Offset="0"/>
+                            <GradientStop Color="#070F2B" Offset="1"/>
+                        </GradientStopCollection>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+            <StackLayout>
+                
+       
+            <Controls:ToolBar  HorizontalOptions="FillAndExpand" HeightRequest="130" HasCartButton="False"   
+            Title="{Binding CurrentProvider.ServiceName}"/>
+                <yummy:PancakeView  Grid.Row="4"   CornerRadius="15" 
+                   BackgroundGradientStartPoint="0,0"
+                               HorizontalOptions="EndAndExpand" Padding="5" Margin="15,0,0,0" xct:CornerRadiusEffect.CornerRadius="90" BackgroundColor="#FBA834"
+                                       BackgroundGradientEndPoint="1,1"
+                        
+                           >
+                    <yummy:PancakeView.Shadow>
+                        <yummy:DropShadow Color="White" Opacity="1"  ></yummy:DropShadow>
+                    </yummy:PancakeView.Shadow>
+                    <StackLayout Orientation="Horizontal" >
+                        <Label Text="{Res:Translate rate}" FontFamily="DG" 
+                               TextColor="White" HorizontalTextAlignment="Center"></Label>
+                        <Image>
+                            <Image.Source>
+                                <FontImageSource Glyph="" FontFamily="FontIconSolid" ></FontImageSource>
+                            </Image.Source>
+                        </Image>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoRate} " CommandParameter="{Binding}"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                </yummy:PancakeView>
+                <ScrollView Grid.Row="1">
+                
+                <Grid Grid.Row="1"  Padding="20"  RowSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+                        <!--<BoxView Grid.RowSpan="2">
+                            <BoxView.Background>
+                                <LinearGradientBrush>
+                                    <GradientStopCollection>
+                                        <GradientStop Color="#132238" Offset="0"/>
+                                        <GradientStop Color="#070F2B" Offset="1"/>
+                                    </GradientStopCollection>
+                                </LinearGradientBrush>
+                            </BoxView.Background>
+                        </BoxView>-->
+                        <yummy:PancakeView CornerRadius="90" HorizontalOptions="CenterAndExpand"
+                                           Grid.Row="1" BackgroundColor="Black">
+                        <yummy:PancakeView.Border>
+                            <yummy:Border Color="White" Thickness="1"></yummy:Border>
+                        </yummy:PancakeView.Border>
+
+                            <yummy:PancakeView.Shadow>
+                                <yummy:DropShadow Color="White" Opacity="1"  ></yummy:DropShadow>
+                            </yummy:PancakeView.Shadow>
+                            <Image 
+                               Aspect="Fill"
+			                HeightRequest="130" WidthRequest="130"
+			               Source = "{Binding CurrentProvider.ImageName}">
+                        </Image>
+                    </yummy:PancakeView>
+                   
+
+                    <Label HorizontalOptions="Center" HorizontalTextAlignment="Center"
+                           Grid.Row="2" Style="{StaticResource lblTitle}"
+            Text="{Binding CurrentProvider.ProviderName}"/>
+
+                    <rating:SfRating  Grid.Row="3" HorizontalOptions="Center" Precision="Half" ItemCount="5" 
+              ReadOnly="true" ItemSize="20" Value="{Binding CurrentProvider.ratting}" >
+                        <rating:SfRating.RatingSettings>
+                                <rating:SfRatingSettings RatedFill="#FBA834" UnRatedFill="White" />
+                        </rating:SfRating.RatingSettings>
+                        
+                    </rating:SfRating>
+
+                    <Grid  Grid.Row="4" RowSpacing="20" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="80"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                        <StackLayout  Grid.ColumnSpan="2"  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                            <!--<Label Text="{Res:Translate lblCost}"
+                             
+                                         HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                   Style="{StaticResource lblBigTitle}"></Label>-->
+                       
+                            <!--<Label  
+                                     HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="End"
+                                     Style="{StaticResource lblValueSpecial}"
+                                     Text="{Binding CurrentProvider.ServiceCost}"></Label>-->
+
+                        </StackLayout>
+
+
+                            <yummy:PancakeView Grid.Row="1" BackgroundColor="White"  CornerRadius="15" Grid.ColumnSpan="2" Grid.RowSpan="3">
+                                <yummy:PancakeView.Border>
+                                    <yummy:Border Color="#FBA834" Thickness="3">
+
+                                    </yummy:Border>
+                                </yummy:PancakeView.Border>
+                                <Editor   BackgroundColor="White" Text="{Binding Description}" 
+                                         Margin="20"
+                                          TextColor="Black"
+                                           FontFamily="DG"
+                                          PlaceholderColor="Black"
+                                          Placeholder="{Res:Translate lblDescription}"></Editor>
+                            </yummy:PancakeView>
+                            <yummy:PancakeView Grid.Row="4" CornerRadius="15" Grid.ColumnSpan="2"  >
+                                <yummy:PancakeView.Border>
+                                    <yummy:Border Color="#FBA834" Thickness="1">
+
+                                    </yummy:Border>
+                                </yummy:PancakeView.Border>
+                                <StackLayout BackgroundColor="White" >
+                                    <Label  Text="حدد  السعر المناسب "  HorizontalOptions="CenterAndExpand"   TextColor="#070F2B"  FontFamily="DG"  Grid.Row="7"></Label>
+                                    <Entry   
+                                                Text="{Binding Cost}"
+                                          Margin="20,-10,20,0"
+                                          TextColor="Black"
+                                             Keyboard="Numeric"
+                                               Grid.ColumnSpan="2"
+                       >
+
+
+
+                                    </Entry>
+                                </StackLayout>
+
+                            </yummy:PancakeView>
+
+
+
+
+                           
+                                <StackLayout Grid.Row="5" Orientation="Horizontal" HorizontalOptions="CenterAndExpand"  Grid.ColumnSpan="2">
+
+
+                                    <Label Text="{Res:Translate lblPicImage}"   
+                                    TextColor="White"
+                                       Grid.ColumnSpan="2"
+                                       FontFamily="DG"
+                                       TextDecorations="Underline"
+                                    Grid.Row="6"  >
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer   Command="{Binding imgPic}"></TapGestureRecognizer>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <Image>
+                                        <Image.Source>
+                                            <FontImageSource Glyph="" FontFamily="FontIconSolid" ></FontImageSource>
+                                        </Image.Source>
+                                    </Image>
+                                </StackLayout>
+
+                            <StackLayout Grid.Row="6" Orientation="Horizontal" HorizontalOptions="CenterAndExpand"  >
+
+                                <Image Source="{Binding SelectedImage}"
+                      
+                               
+                                       HeightRequest="200"
+                          
+                                       Aspect="Fill" 
+                                     
+                                       />
+                            </StackLayout>
+                            <yummy:PancakeView Grid.Row="7" CornerRadius="15" BackgroundColor="White" Grid.ColumnSpan="2" >
+                                <yummy:PancakeView.Border>
+                                    <yummy:Border Color="#FBA834" Thickness="1">
+
+                                    </yummy:Border>
+                                </yummy:PancakeView.Border>
+                                <Editor   BackgroundColor="White" Text="{Binding Address }" 
+                                          Margin="20"
+                                          
+                                          PlaceholderColor="Black"
+                                          FontFamily="DG"
+                                            TextColor="Black"
+                                           AutoSize="TextChanges"
+                                          Placeholder="{Res:Translate lblAddress}">
+                                    <Editor.Behaviors>
+                                        <xct:EventToCommandBehavior
+                    EventName="Focused"
+                    Command="{Binding GetLocationCommand}" />
+                                    </Editor.Behaviors>
+                                </Editor>
+                            </yummy:PancakeView>
+                          
+                            <yummy:PancakeView Grid.Row="8" CornerRadius="15" Grid.ColumnSpan="2" >
+                                <yummy:PancakeView.Border>
+                                    <yummy:Border Color="#FBA834" Thickness="1">
+
+                                    </yummy:Border>
+                                </yummy:PancakeView.Border>
+                                <StackLayout BackgroundColor="White" Padding="0,10,0,0">
+                                    <Label  Text="حدد معاد ووقت الزياره  "  TextColor="#070F2B" HorizontalOptions="CenterAndExpand" FontFamily="DG"  Grid.Row="7"></Label>
+                                    <DatePicker x:Name="dtBirth"  BackgroundColor="White"
+                                             
+                                                Date="{Binding DateSelected}"
+                                                TextColor="Gray"
+                                                HorizontalOptions="CenterAndExpand"
+                                               Grid.ColumnSpan="2"
+                       >
+
+                                        
+                                        
+                                    </DatePicker>
+                                </StackLayout>
+                               
+                            </yummy:PancakeView>
+
+                            <StackLayout Grid.Row="9" Grid.ColumnSpan="2"  >
+                                <Button Text="{Res:Translate btnRequest}" TextColor="White" FontSize="20" FontFamily="DG" BackgroundColor="Orange" CornerRadius="15"   Command="{Binding PostService}"   ></Button>
+                            </StackLayout>
+
+
+
+                        </Grid>
+                
+                </Grid>
+            </ScrollView>
+            </StackLayout>
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>

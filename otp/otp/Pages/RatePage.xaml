@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rg:PopupPage xmlns:rg="http://rotorgames.com" xmlns="http://xamarin.com/schemas/2014/forms"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:fRating="clr-namespace:Rating;assembly=Rating"
+               xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
+               xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+               xmlns:vm="clr-namespace:otp.ViewModels"
+               xmlns:Res="clr-namespace:otp.Resources"
+               xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+               x:Class="otp.Pages.RatePage">
+    <rg:PopupPage.BindingContext>
+        <vm:RateViewModel>
+        </vm:RateViewModel>
+    </rg:PopupPage.BindingContext>
+    <Grid HeightRequest="300" VerticalOptions="EndAndExpand">
+     
+        <Frame Grid.RowSpan="2" HeightRequest="300" VerticalOptions="EndAndExpand" 
+               HorizontalOptions="CenterAndExpand"
+               BorderColor="White" 
+               
+        WidthRequest="280"
+               BackgroundColor="#070F2B" CornerRadius="30">
+            <StackLayout >
+                
+            
+            <Image 
+       
+                           HorizontalOptions="EndAndExpand" 
+               
+                        >
+                
+                <Image.Source>
+                    <FontImageSource Glyph="" Color="White" FontFamily="FontIconSolid">
+
+                    </FontImageSource>
+                </Image.Source>
+                    <Image.GestureRecognizers>
+                       
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                      
+                    </Image.GestureRecognizers>
+
+            </Image>
+            <StackLayout Grid.Row="1" Spacing="20" HorizontalOptions="CenterAndExpand">
+
+               
+                <yummy:PancakeView CornerRadius="80" 
+                               HorizontalOptions="CenterAndExpand" >
+                    <yummy:PancakeView.Border>
+                        <yummy:Border Color="White" Thickness="3"></yummy:Border>
+                    </yummy:PancakeView.Border>
+                    <yummy:PancakeView.Shadow>
+                        <yummy:DropShadow ></yummy:DropShadow>
+                    </yummy:PancakeView.Shadow>
+                    <Image       
+                              Aspect="Fill"
+			                   WidthRequest="120" HeightRequest="120" 
+			               Source = "{Binding CurrentOfProvider.ImageName}">
+                    </Image>
+                </yummy:PancakeView>
+                <StackLayout Orientation="Horizontal">
+                  
+                    <Label HorizontalOptions="Center" HorizontalTextAlignment="Center" 
+                       Style="{StaticResource lblTitle}"
+                       TextColor="White"
+                       Text="{Res:Translate lblrate}" />
+                    <Label HorizontalOptions="Center" HorizontalTextAlignment="Center" 
+                     
+                       TextColor="Orange"
+                       Text="{Binding CurrentOfProvider.ProviderName}" />
+
+                </StackLayout>
+                
+              
+                <rating:SfRating  HorizontalOptions="CenterAndExpand"
+                                 VerticalOptions="EndAndExpand"
+                                  Precision="Standard" ItemCount="5"
+                            
+                                Value="{Binding SelectedRating}"
+
+                                  ReadOnly="False" ItemSize="23">
+                    
+                    <rating:SfRating.Behaviors>
+                        <xct:EventToCommandBehavior EventName="ValueChanged"
+                                                     Command="{Binding RatingChangedCommand}" />
+                    </rating:SfRating.Behaviors>
+                    <rating:SfRating.RatingSettings>
+                        <rating:SfRatingSettings RatedFill="Gold" UnRatedFill="White" />
+                    </rating:SfRating.RatingSettings>
+                </rating:SfRating>
+            </StackLayout>
+            </StackLayout>
+        </Frame>
+      
+
+    </Grid>
+</rg:PopupPage>

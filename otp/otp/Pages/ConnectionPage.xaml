@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:otp.ViewModels"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#070F2B"
+             x:Class="otp.Pages.ConnectionPage">
+    <ContentPage.BindingContext>
+        <vm:ConnectionViewModel></vm:ConnectionViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Image Source="connection.png"></Image>
+            <Label Text="تحقق من الاتصال بالانترنت"
+                   FontFamily="DG"
+                   TextColor="White"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+   
+        
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

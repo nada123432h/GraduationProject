@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<control:Custompage  xmlns:control="clr-namespace:otp.Controls" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Res="clr-namespace:otp.Resources"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+                       xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             NavigationPage.HasNavigationBar="False"
+                     x:Name="settingpage"
+             x:Class="otp.Pages.SettingsPage">
+    <ContentPage.Content>
+        <ScrollView >
+            <Grid BackgroundColor="White" RowDefinitions="auto"
+                        >
+
+
+           
+                
+            
+            <Grid   RowDefinitions="100,120,auto,auto,auto,auto,60,auto" RowSpacing="20" >
+              
+                <Path Data="M0,0H375V262.033s-9.025,4.813-55.426-10.71-70.141-83.047-130.3-83.22-83.544,67.7-130.893,83.22S0,262.033,0,262.033Z" Grid.Row="0" 
+                      Grid.RowSpan="2"
+                  Aspect="Fill" Fill="#041E31"/>
+                <control:ToolBar HasBackButton="True"  HasCartButton="False"
+                                  
+                                 Title="{Res:Translate lblSetting}"
+                                 VerticalOptions="StartAndExpand"></control:ToolBar>
+                <StackLayout HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.RowSpan="2"  >
+
+
+                  
+                    <StackLayout VerticalOptions="CenterAndExpand" 
+                                         HorizontalOptions="CenterAndExpand"
+                                     
+                                    
+                                         
+                                    
+                                         Grid.Row="0" Orientation="Vertical" >
+                      
+                    
+
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HeightRequest="150"  HorizontalOptions="FillAndExpand">
+
+                        <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal" >
+
+                            <yummy:PancakeView CornerRadius="80"   HorizontalOptions="CenterAndExpand"  Padding="0"  >
+                                <yummy:PancakeView.Border>
+                                    <yummy:Border Color="White" Thickness="2"></yummy:Border>
+                                </yummy:PancakeView.Border>
+                                <StackLayout Orientation="Horizontal"  HorizontalOptions="CenterAndExpand">
+
+
+                                    <Image Source="{Binding SelectedImage}" Aspect="AspectFill" WidthRequest="150" HeightRequest="150" ></Image>
+
+
+                                </StackLayout>
+
+                            </yummy:PancakeView>
+
+                        </StackLayout>
+
+
+                    </StackLayout>
+                    
+
+
+                </StackLayout>
+
+
+                <StackLayout  Spacing="20"
+                            
+                                         HorizontalOptions="FillAndExpand"
+                                     
+                                    
+                                        
+                                    
+                                         Grid.Row="3" Orientation="Vertical" >
+                    <StackLayout  HorizontalOptions="CenterAndExpand"  Grid.Row="3"
+                                    >
+
+
+
+                        <Label  TextColor="#070F2B" 
+                                Grid.ColumnSpan="2"
+                          VerticalTextAlignment="Center"
+                                Text="{Binding Username}"
+                                HorizontalOptions="CenterAndExpand"
+                               FontFamily="Helvetica"  ></Label>
+                       
+                    </StackLayout >
+                    <StackLayout    HorizontalOptions="FillAndExpand"   Grid.Row="4" Padding="20,0,20,0"  >
+
+                        <yummy:PancakeView  BackgroundColor="LightGray" Grid.Row="4"  Padding="10"  CornerRadius="15" 
+                   BackgroundGradientStartPoint="0,0"
+                               
+                                       BackgroundGradientEndPoint="1,1"
+                                       
+                           HorizontalOptions="FillAndExpand"
+                           >
+                            <yummy:PancakeView.Shadow>
+                                <yummy:DropShadow Color="White" Opacity="1"  ></yummy:DropShadow>
+                            </yummy:PancakeView.Shadow>
+                            <StackLayout  Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+
+
+                                <Label  Text="{Res:Translate lblEmail}" VerticalTextAlignment="Start" TextColor="Black"  HorizontalOptions="StartAndExpand" FontFamily="DG"></Label>
+
+                                <Label  VerticalTextAlignment="Center" Text="{Binding UserEmail}" TextColor="#365486" HorizontalOptions="EndAndExpand" FontFamily="DG"></Label>
+                            </StackLayout>
+
+                        </yummy:PancakeView>
+                    </StackLayout>
+                    <StackLayout    HorizontalOptions="FillAndExpand"   Grid.Row="5" Padding="20,0,20,0"  >
+
+                        <yummy:PancakeView  BackgroundColor="LightGray" Grid.Row="4"  Padding="10"  CornerRadius="15" 
+                   BackgroundGradientStartPoint="0,0"
+                               
+                                       BackgroundGradientEndPoint="1,1"
+                                       
+                           HorizontalOptions="FillAndExpand"
+                           >
+                            <yummy:PancakeView.Shadow>
+                                <yummy:DropShadow Color="White" Opacity="1"  ></yummy:DropShadow>
+                            </yummy:PancakeView.Shadow>
+                            <StackLayout  Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+
+
+                                <Label  Text="{Res:Translate lblPhoneNumber}" 
+                                        VerticalTextAlignment="Start" TextColor="Black"  HorizontalOptions="StartAndExpand" FontFamily="DG"></Label>
+
+                                <Label  VerticalTextAlignment="Center"  Text="{Binding PhoneNumber}" TextColor="#365486" HorizontalOptions="EndAndExpand" FontFamily="DG"></Label>
+                            </StackLayout>
+
+                        </yummy:PancakeView>
+                    </StackLayout>
+                </StackLayout>
+
+
+                <StackLayout Orientation="Vertical" Margin="20,0,20,0" 
+                             BackgroundColor="#DCF2F1" xct:CornerRadiusEffect.CornerRadius="10"  Grid.Row="4" HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand"  >
+                    <Label   
+                                   
+                                
+                                   TextColor="#365486" Text="{Res:Translate lblChangePass}"
+                                     Padding="10"
+                            FontFamily="DG"></Label>
+                    <Label 
+                                   Grid.ColumnSpan="2"
+                                   HorizontalTextAlignment="Center"
+                       Padding="10"
+                                   TextDecorations="Underline"
+                        HorizontalOptions="StartAndExpand"
+                                   TextColor="Red" Text="{Res:Translate lblChangePassword}"
+                                   
+                            FontFamily="DG">
+                        <Label.GestureRecognizers >
+                            <TapGestureRecognizer Command="{Binding ChangePassword}"></TapGestureRecognizer>
+
+
+                        </Label.GestureRecognizers>
+
+                    </Label>
+                   
+                   
+
+
+
+                </StackLayout>
+                <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal"  Grid.Row="5" Padding="20,0,0,0">
+                    <ImageButton BackgroundColor="Transparent"
+                                         HeightRequest="30"   
+                                     Padding="0,10,0,0"
+                                      VerticalOptions="CenterAndExpand"
+                                 
+                                         
+                                                       >
+                        <ImageButton.Source>
+                            <FontImageSource Glyph="" Size="21"  Color="#0F2C59" FontFamily="FontIconSolid"></FontImageSource>
+                        </ImageButton.Source>
+                    </ImageButton>
+                    <Label Text="{Res:Translate lblChooseLanguage}"
+                               FontSize="20"  TextTransform="None" 
+                        
+                                       
+           FontFamily="DG"
+                           
+                           VerticalTextAlignment="Center"
+                         
+                              FontAttributes="Bold"
+          
+           TextColor="#0F2C59"></Label>
+                    
+                </StackLayout>
+                <StackLayout Grid.Row="6" HorizontalOptions="CenterAndExpand" Orientation="Horizontal" >
+                    <Button Text="English"     CornerRadius="30" BorderColor="White" BorderWidth="3" FontFamily="DG" BackgroundColor="#0F2C59" TextColor="White"  Command="{Binding NavigateEnglish}"></Button>
+                        <Button Text="العربيه"  BorderColor="#0F2C59" BorderWidth="3"  CornerRadius="30" HorizontalOptions="EndAndExpand" FontFamily="DG" BackgroundColor="White" TextColor="#0F2C59"  Command="{Binding NavigateArabic}" ></Button>
+
+                </StackLayout>
+                
+            </Grid >
+          
+
+        </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</control:Custompage>

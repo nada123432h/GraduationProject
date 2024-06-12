@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ServicesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TableOfProviders">
+    <Key>
+      <PropertyRef Name="providerid" />
+    </Key>
+    <Property Name="providerid" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TbOfRequests">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProviderId" Type="int" />
+    <Property Name="ServiceId" Type="int" />
+    <Property Name="Descriptions" Type="nvarchar(max)" />
+    <Property Name="ImageNameProblem" Type="nvarchar(max)" />
+    <Property Name="ServiceName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProviderName" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Cost" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="StatusOfRequest" Type="bit" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="IsResponse" Type="bit" />
+  </EntityType>
+  <EntityType Name="TbProviders">
+    <Key>
+      <PropertyRef Name="ProvicderId" />
+    </Key>
+    <Property Name="ProvicderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProviderName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Lat" Type="float" Nullable="false" />
+    <Property Name="Long" Type="float" Nullable="false" />
+    <Property Name="ImageName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Rating" Type="float" />
+    <Property Name="Area" Type="nvarchar" MaxLength="50" />
+    <Property Name="ratting" Type="float" />
+    <Property Name="ServiceId" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'db_aa807f_otp.dbo.TbRating' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TbRating">
+    <Key>
+      <PropertyRef Name="ProviderId" />
+    </Key>
+    <Property Name="ProviderId" Type="int" Nullable="false" />
+    <Property Name="Rating" Type="float" />
+  </EntityType>
+  <EntityType Name="TbServiceProviders">
+    <Key>
+      <PropertyRef Name="ServiceId" />
+      <PropertyRef Name="ProviderId" />
+    </Key>
+    <Property Name="ServiceId" Type="int" Nullable="false" />
+    <Property Name="ProviderId" Type="int" Nullable="false" />
+    <Property Name="ServiceCost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TbServices">
+    <Key>
+      <PropertyRef Name="ServiceId" />
+    </Key>
+    <Property Name="ServiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServiceName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ServiceNameAr" Type="nvarchar" MaxLength="200" />
+    <Property Name="ServiceIcon" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="TbUsers">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerPhone" Type="varchar" MaxLength="50" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustomerEmail" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'db_aa807f_otp.dbo.VwRequestsProviders' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VwRequestsProviders">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="ProviderId" Type="int" />
+    <Property Name="Descriptions" Type="nvarchar(max)" />
+    <Property Name="ImageNameProblem" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Cost" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="ProviderName" Type="nvarchar(max)" />
+    <Property Name="StatusOfRequest" Type="bit" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CustomerPhone" Type="varchar" MaxLength="50" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsResponse" Type="bit" />
+    <Property Name="CustomerEmail" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'db_aa807f_otp.dbo.VwServiceProviders' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VwServiceProviders">
+    <Key>
+      <PropertyRef Name="ProvicderId" />
+      <PropertyRef Name="ProviderName" />
+      <PropertyRef Name="Lat" />
+      <PropertyRef Name="Long" />
+    </Key>
+    <Property Name="ProvicderId" Type="int" Nullable="false" />
+    <Property Name="ProviderName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Lat" Type="float" Nullable="false" />
+    <Property Name="Long" Type="float" Nullable="false" />
+    <Property Name="ImageName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Rating" Type="float" />
+    <Property Name="ratting" Type="float" />
+    <Property Name="ServiceId" Type="int" />
+    <Property Name="Area" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'db_aa807f_otp.dbo.VwServics' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VwServics">
+    <Key>
+      <PropertyRef Name="ServiceId" />
+      <PropertyRef Name="ServiceName" />
+    </Key>
+    <Property Name="ServiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServiceName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ServiceIcon" Type="nvarchar" MaxLength="200" />
+    <Property Name="ServiceNameAr" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <Association Name="FK_TbOfRequests_TbUsers">
+    <End Role="TbUsers" Type="Self.TbUsers" Multiplicity="0..1" />
+    <End Role="TbOfRequests" Type="Self.TbOfRequests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbUsers">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="TbOfRequests">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbProviders_TbServices">
+    <End Role="TbServices" Type="Self.TbServices" Multiplicity="0..1" />
+    <End Role="TbProviders" Type="Self.TbProviders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbServices">
+        <PropertyRef Name="ServiceId" />
+      </Principal>
+      <Dependent Role="TbProviders">
+        <PropertyRef Name="ServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbServiceProviders_TbServices">
+    <End Role="TbServices" Type="Self.TbServices" Multiplicity="1" />
+    <End Role="TbServiceProviders" Type="Self.TbServiceProviders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbServices">
+        <PropertyRef Name="ServiceId" />
+      </Principal>
+      <Dependent Role="TbServiceProviders">
+        <PropertyRef Name="ServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ServicesModelStoreContainer">
+    <EntitySet Name="TableOfProviders" EntityType="Self.TableOfProviders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TbOfRequests" EntityType="Self.TbOfRequests" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TbProviders" EntityType="Self.TbProviders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TbServiceProviders" EntityType="Self.TbServiceProviders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TbServices" EntityType="Self.TbServices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TbUsers" EntityType="Self.TbUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TbRating" EntityType="Self.TbRating" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TbRating].[ProviderId] AS [ProviderId], 
+    [TbRating].[Rating] AS [Rating]
+    FROM [dbo].[TbRating] AS [TbRating]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwRequestsProviders" EntityType="Self.VwRequestsProviders" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VwRequestsProviders].[ProviderId] AS [ProviderId], 
+    [VwRequestsProviders].[Descriptions] AS [Descriptions], 
+    [VwRequestsProviders].[ImageNameProblem] AS [ImageNameProblem], 
+    [VwRequestsProviders].[Date] AS [Date], 
+    [VwRequestsProviders].[Cost] AS [Cost], 
+    [VwRequestsProviders].[Address] AS [Address], 
+    [VwRequestsProviders].[ProviderName] AS [ProviderName], 
+    [VwRequestsProviders].[StatusOfRequest] AS [StatusOfRequest], 
+    [VwRequestsProviders].[ID] AS [ID], 
+    [VwRequestsProviders].[CustomerPhone] AS [CustomerPhone], 
+    [VwRequestsProviders].[CustomerId] AS [CustomerId], 
+    [VwRequestsProviders].[CustomerName] AS [CustomerName], 
+    [VwRequestsProviders].[IsResponse] AS [IsResponse], 
+    [VwRequestsProviders].[CustomerEmail] AS [CustomerEmail]
+    FROM [dbo].[VwRequestsProviders] AS [VwRequestsProviders]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwServiceProviders" EntityType="Self.VwServiceProviders" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VwServiceProviders].[ProvicderId] AS [ProvicderId], 
+    [VwServiceProviders].[ProviderName] AS [ProviderName], 
+    [VwServiceProviders].[Description] AS [Description], 
+    [VwServiceProviders].[Lat] AS [Lat], 
+    [VwServiceProviders].[Long] AS [Long], 
+    [VwServiceProviders].[ImageName] AS [ImageName], 
+    [VwServiceProviders].[Rating] AS [Rating], 
+    [VwServiceProviders].[ratting] AS [ratting], 
+    [VwServiceProviders].[ServiceId] AS [ServiceId], 
+    [VwServiceProviders].[Area] AS [Area]
+    FROM [dbo].[VwServiceProviders] AS [VwServiceProviders]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwServics" EntityType="Self.VwServics" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VwServics].[ServiceId] AS [ServiceId], 
+    [VwServics].[ServiceName] AS [ServiceName], 
+    [VwServics].[ServiceIcon] AS [ServiceIcon], 
+    [VwServics].[ServiceNameAr] AS [ServiceNameAr]
+    FROM [dbo].[VwServics] AS [VwServics]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_TbOfRequests_TbUsers" Association="Self.FK_TbOfRequests_TbUsers">
+      <End Role="TbUsers" EntitySet="TbUsers" />
+      <End Role="TbOfRequests" EntitySet="TbOfRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbProviders_TbServices" Association="Self.FK_TbProviders_TbServices">
+      <End Role="TbServices" EntitySet="TbServices" />
+      <End Role="TbProviders" EntitySet="TbProviders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbServiceProviders_TbServices" Association="Self.FK_TbServiceProviders_TbServices">
+      <End Role="TbServices" EntitySet="TbServices" />
+      <End Role="TbServiceProviders" EntitySet="TbServiceProviders" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

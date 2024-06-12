@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+            
+             x:Class="otp.Controls.ToolBar">
+  <ContentView.Content>
+        <yummy:PancakeView CornerRadius="10" Padding="0,10,0,10"  >
+
+
+            <Grid HeightRequest="60" HorizontalOptions="FillAndExpand"   BackgroundColor="#DCF2F1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="60"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="imgCart" Style="{StaticResource imgHeadewr}">
+                    <Image.Source >
+                        <FontImageSource Glyph="" FontFamily="FontIconSolid">
+
+                        </FontImageSource>
+                    </Image.Source>
+
+                </Image>
+
+
+                <Label x:Name="lblTitle" Grid.Column="1"  HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center"   FontFamily="DG" TextColor="#141E46" ></Label>
+        
+
+
+                <Image Grid.Column="2" x:Name="imgBack"  >
+
+                    <Image.Source >
+                        <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="#141E46">
+
+                        </FontImageSource>
+
+                    </Image.Source>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+
+                </Image>
+
+
+            </Grid>
+        </yummy:PancakeView>
+      
+  </ContentView.Content>
+</ContentView>

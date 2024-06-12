@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Res="clr-namespace:otp.Resources"
+             xmlns:controls="clr-namespace:otp.Controls"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"               
+             NavigationPage.HasNavigationBar="False"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+            xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             x:Class="otp.Pages.LoginPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+   
+
+        <Style TargetType="Entry" x:Key="InvalidStyle">
+                <Setter Property="TextColor" Value="Red"></Setter>
+            </Style>
+
+            <Style TargetType="Entry" x:Key="ValidStyle">
+                <Setter Property="TextColor" Value="Black"></Setter>
+            </Style>
+ 
+    </ResourceDictionary>
+        </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" Padding="0,20,0,30" BackgroundColor="#070F2B" VerticalOptions="FillAndExpand" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="130"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" Margin="0,0,0,0" Source="Logo.png" Aspect="AspectFit" HeightRequest="180" WidthRequest="50"></Image>
+            <yummy:PancakeView  Grid.Row="1" BackgroundGradientStartPoint="0,0" BackgroundGradientEndPoint="0,1"  Margin="0,0" BackgroundColor="White"   CornerRadius="50" >
+                <yummy:PancakeView.Border>
+                    <yummy:Border Color="#FF7700" Thickness="5"></yummy:Border>
+                  
+                </yummy:PancakeView.Border>
+                <yummy:PancakeView.BackgroundGradientStops>
+                    <yummy:GradientStopCollection>
+                        <yummy:GradientStop Color="White" Offset="0"></yummy:GradientStop>
+
+                        <yummy:GradientStop Color="White" Offset="1"></yummy:GradientStop>
+                    </yummy:GradientStopCollection>
+                </yummy:PancakeView.BackgroundGradientStops>
+                
+                <yummy:PancakeView.Shadow>
+                    <yummy:DropShadow Color="Black" Opacity="1"  ></yummy:DropShadow>
+                </yummy:PancakeView.Shadow>
+
+                <Grid RowSpacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20,0,20,0"  >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0"   Text="مرحبا بك" FontFamily="DG" FontAttributes="Bold" FontSize="29" TextColor="#1C375C" HorizontalOptions="CenterAndExpand"></Label>
+                        <Label Grid.Row="1"  Text="تسجيل الدخول"  FontFamily="DG"  FontSize="29" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
+                        <Frame CornerRadius="15"   WidthRequest="350"
+                               Margin="0,20,0,0"
+                               HorizontalOptions="CenterAndExpand"
+                               BorderColor="DarkGray"
+                               HasShadow="True" 
+                               HeightRequest="6 " Grid.Row="2" >
+                            
+                        
+                            <Entry   FlowDirection="RightToLeft" x:Name="txtEmail" 
+                               Text="{Binding txtemail}" Keyboard="Email"
+                             
+                               ClearButtonVisibility="WhileEditing"
+                                     PlaceholderColor="Gray"
+                               Placeholder="البريد الالكتروني"  
+                                     
+                               Margin="0,-30,-5,-30" 
+                                          FontFamily="DG"
+                               xct:TouchEffect.HoveredBackgroundColor="White"
+                               
+                               xct:TouchEffect.NormalBackgroundColor="Transparent"
+                               VerticalOptions="FillAndExpand">
+
+                            <Entry.Behaviors >
+                                <xct:EmailValidationBehavior
+                   
+                      
+                        DecorationFlags="Trim"
+                 InvalidStyle="{StaticResource InvalidStyle}"
+                                    ValidStyle="{StaticResource ValidStyle}"
+                     Flags="ValidateOnValueChanging"
+
+                        IsValid="True"
+                 
+                    
+                    >
+
+
+                                </xct:EmailValidationBehavior>
+
+                            </Entry.Behaviors>
+
+                        </Entry>
+
+                     </Frame>
+                        <yummy:PancakeView CornerRadius="15" Grid.Row="3" BackgroundColor="White" 
+                                           WidthRequest="350"
+                                           HeightRequest="45"
+                                    
+                               Margin="0,10,0,0"
+                               HorizontalOptions="FillAndExpand"
+                        
+                           
+                             
+                              
+                             >
+                            <yummy:PancakeView.Border>
+                                <yummy:Border Color="DarkGray" Thickness="2"></yummy:Border>
+                            </yummy:PancakeView.Border>
+                            <yummy:PancakeView.Shadow >
+                                <yummy:DropShadow></yummy:DropShadow>
+                            </yummy:PancakeView.Shadow>
+                            <StackLayout Grid.Row="3" Orientation="Horizontal"  Margin="12,5,5,10"   >
+
+
+
+                              
+
+                                    <Image   x:Name="emimg2"  HeightRequest="25"  VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand"   >
+                                <Image.Source >
+                                        <FontImageSource Glyph=""  Color="#334257" FontFamily="FontIconSolid"></FontImageSource>
+                                </Image.Source>
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+
+
+                                <Entry   Text="{Binding txtPass}" 
+                          Margin="180,-30,0,-30" 
+                                         IsPassword="True"
+                                         HorizontalOptions="FillAndExpand"
+                                        HeightRequest="12"
+                                        Grid.ColumnSpan="2"
+                             TextColor="Black"
+                      PlaceholderColor="Gray"
+                                              FontFamily="DG"
+                                              xct:TouchEffect.HoveredBackgroundColor="White"
+                                        xct:TouchEffect.NormalBackgroundColor="Transparent"
+                                 xct:ShadowEffect.Radius="23"
+                                        
+                                     x:Name="pasEntry" Placeholder="كلمه المرور" ClearButtonVisibility="WhileEditing" ></Entry>
+
+                                
+                          
+                        </StackLayout>
+                        </yummy:PancakeView>
+                        <Label Grid.Row="4" TextColor="#B31312" 
+                               Padding="0,10,0,0"
+                               FontFamily="DG"
+                           TextDecorations="Underline"   Text="هل نسيت كلمه المرور؟"  HorizontalOptions="EndAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToForget}"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <StackLayout Grid.Row="5" Padding="0,15,0,-10">
+                            
+                      
+                        <Button   Command="{Binding NavigateToHome}" Text="الدخول" HorizontalOptions="CenterAndExpand" FontFamily="DG" FontSize="18"  
+                                  WidthRequest="300"
+                                  FontAttributes="Bold" 
+                                  xct:ShadowEffect.Color="AliceBlue"
+                                  xct:ShadowEffect.Opacity=".3"
+                                     xct:TouchEffect.PressedScale=".9"
+                            xct:TouchEffect.PressedOpacity=".7"
+           xct:TouchEffect.NormalBackgroundColor="#1C375C"
+            xct:TouchEffect.PressedAnimationDuration="100"
+                            TextColor="{DynamicResource WhiteLight}" BackgroundColor="#1C375C" CornerRadius="20"></Button>
+                        </StackLayout>
+                        <StackLayout Grid.Row="8" HorizontalOptions="CenterAndExpand">
+                            <yummy:PancakeView Grid.Row="10" BackgroundColor="#1C375C" Padding="30,0,10,0"   CornerRadius="20" 
+                   BackgroundGradientStartPoint="0,0"
+                                         xct:ShadowEffect.Color="AliceBlue"
+                                  xct:ShadowEffect.Opacity=".3"
+                                       BackgroundGradientEndPoint="1,1"
+                                          xct:TouchEffect.PressedScale=".9"
+                            xct:TouchEffect.PressedOpacity=".7"
+            WidthRequest="260"
+                                               
+            xct:TouchEffect.PressedAnimationDuration="200"
+                           HorizontalOptions="CenterAndExpand"
+                           >
+                                <yummy:PancakeView.Border>
+                                    <yummy:Border Thickness="5"></yummy:Border>
+
+                                </yummy:PancakeView.Border>
+                                <yummy:PancakeView.Shadow>
+                                    <yummy:DropShadow Color="Gray" Opacity="1"  ></yummy:DropShadow>
+                                </yummy:PancakeView.Shadow>
+                                <StackLayout Orientation="Horizontal" HeightRequest="50" 
+                                   
+                                     HorizontalOptions="CenterAndExpand"
+                                 
+                                 >
+                                    <Image 
+                        
+                           HorizontalOptions="CenterAndExpand"  >
+                                        <Image.Source>
+                                            <FontImageSource Glyph="" Color="White" FontFamily="FontIconSolid"></FontImageSource>
+                                        </Image.Source>
+                                        <Image.Rotation>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="Android">90</On>
+                                                <On Platform="iOS">180</On>
+
+                                            </OnPlatform>
+                                        </Image.Rotation>
+                                    </Image>
+
+                                    <Button  BackgroundColor="Transparent"
+                       
+              
+                           HorizontalOptions="CenterAndExpand" 
+                              TextColor="White" 
+                   VerticalOptions="CenterAndExpand"
+                                   
+                                 TextTransform="None" 
+                                   
+                                    
+                                 FontFamily="DG" 
+                             Text="التسجيل عن طريق الهاتف " />
+                                   
+
+                                </StackLayout>
+                                <yummy:PancakeView.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GoPhone}"></TapGestureRecognizer>
+
+                                </yummy:PancakeView.GestureRecognizers>
+
+
+                            </yummy:PancakeView>
+                        </StackLayout>
+                        <StackLayout Grid.Row="9" Orientation="Horizontal" >
+                            <Label  FontAttributes="Italic" TextColor="#FF7700" TextDecorations="Underline" FontFamily="DG" HorizontalOptions="StartAndExpand"  Text="انشاء حساب جديد/التسجيل بالجيميل"    FontSize="13"  VerticalTextAlignment="Center" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GoRegistet}"></TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label   Text="ليس لديك حساب؟"   FontFamily="DG"  FontSize="16" ></Label>
+                        </StackLayout>
+
+
+
+                    </Grid>
+     
+              
+            </yummy:PancakeView>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

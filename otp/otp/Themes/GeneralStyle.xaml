@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+                       xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:graphics="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+                    x:Class="otp.Themes.GeneralStyle">
+
+    
+
+    <Style TargetType="Label" x:Key="lblHeaderText">
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="TextColor" Value="{DynamicResource WhiteLight}"></Setter>
+        <Setter Property="FontFamily" Value="Helvetica"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+    </Style>
+    <Style TargetType="Label" x:Key="lblTab">
+        <Setter Property="FontFamily" Value="Helvetica"></Setter>
+        <Setter Property="FontSize" Value="16"></Setter>
+   
+        <Setter Property="TextColor" Value="{DynamicResource BgColor}"></Setter>
+    </Style>
+
+   
+
+    <Style TargetType="Label" x:Key="lblSubTitle">
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+        <Setter Property="TextColor" Value="{DynamicResource TextColor}"></Setter>
+    </Style>
+
+    <Style TargetType="Button" x:Key="btnSecandry">
+
+        <Setter Property="BackgroundColor" Value="#FBA834"></Setter>
+        <Setter Property="BorderColor" Value="White"></Setter>
+        <Setter Property="BorderWidth" Value="3"></Setter>
+        <Setter Property="FontSize" Value="19"></Setter>
+        <Setter Property="TextColor" Value="White"></Setter>
+        <Setter Property="FontFamily" Value="DG"></Setter>
+        <Setter Property="CornerRadius" Value="15"></Setter>
+       
+       
+    </Style>
+
+    <Style TargetType="Label" x:Key="lblBigTitle">
+        <Setter Property="TextColor" Value="{DynamicResource WhiteLight}"></Setter>
+        <Setter Property="FontFamily" Value="DG"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+    </Style>
+
+    <Style TargetType="Label" x:Key="lblTitle">
+        <Setter Property="TextColor" Value="{DynamicResource WhiteLight}"></Setter>
+        <Setter Property="FontSize" Value="19"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+    </Style>
+
+    <Style TargetType="Label" >
+        <Setter Property="TextColor" Value="{DynamicResource TextColor}"></Setter>
+        <Setter Property="FontSize" Value="19"></Setter>
+    </Style>
+
+    <Style TargetType="Label" x:Key="lblValueNormal">
+        <Setter Property="TextColor" Value="{DynamicResource GrayLighter}"></Setter>
+        <Setter Property="FontSize" Value="13"></Setter>
+    </Style>
+
+    <Style TargetType="Label" x:Key="lblValueSpecial">
+        <Setter Property="TextColor" Value="{DynamicResource WhiteLight}"></Setter>
+        <Setter Property="FontAttributes" Value="Italic"></Setter>
+        <Setter Property="FontSize" Value="18"></Setter>
+    </Style>
+
+    <Style TargetType="Image" x:Key="imgHomePage">
+        <Setter Property="WidthRequest" Value="50"></Setter>
+        <Setter Property="HeightRequest" Value="60"></Setter>
+    </Style>
+
+    <Style TargetType="Image" x:Key="imgAddToCart">
+        <Setter Property="WidthRequest" Value="30"></Setter>
+        <Setter Property="HeightRequest" Value="30"></Setter>
+        <Setter Property="BackgroundColor" Value="Black">
+        </Setter>
+    </Style>
+
+    <Style TargetType="Image" x:Key="imgHeadewr">
+        <Setter Property="WidthRequest" Value="40"></Setter>
+        <Setter Property="HeightRequest" Value="30"></Setter>
+    </Style>
+
+    <Style TargetType="Image" x:Key="imgSetting">
+        <Setter Property="WidthRequest" Value="60"></Setter>
+        <Setter Property="HeightRequest" Value="50"></Setter>
+    </Style>
+
+    <Style TargetType="xct:TabView" x:Key="TavView1">
+        <Setter Property="TabStripBackgroundColor" Value="{DynamicResource WhiteLight}"></Setter>
+        <Setter Property="TabStripHeight" Value="70"></Setter>
+        <Setter Property="TabContentBackgroundColor" Value="{DynamicResource BgColor}"></Setter>
+        <Setter Property="TabIndicatorColor" Value="{DynamicResource GrayDarker}"> </Setter>
+
+    </Style>
+
+
+    <Style TargetType="xct:TabViewItem" x:Key="TavView2">
+        <Setter Property="TextColor" Value="{DynamicResource BgColor}"></Setter>
+        <Setter Property="FontFamily" Value="DG"></Setter>
+        <Setter Property="TextColorSelected" Value="{DynamicResource BgColor}"></Setter>
+        
+        <Setter Property="FontSize" Value="15"></Setter>
+       
+
+    </Style>
+
+    <Style TargetType="yummy:PancakeView" x:Key="ServiceBox">
+        <Setter Property="BackgroundGradientEndPoint" Value="1,1"></Setter>
+        <Setter Property="BackgroundGradientStartPoint" Value="0,0"></Setter>
+        <Setter Property="BackgroundGradientStops" >
+            <yummy:GradientStopCollection>
+                <yummy:GradientStop Color="#BFDCE5" Offset="0"></yummy:GradientStop>
+                <yummy:GradientStop Color="#F1F6F9" Offset="0.75"></yummy:GradientStop>
+                <yummy:GradientStop Color="#EEEEEE" Offset="1"></yummy:GradientStop>
+            </yummy:GradientStopCollection>
+        </Setter>
+    
+
+
+        <Setter Property="CornerRadius" Value="80"></Setter>
+     
+    
+
+
+    </Style>
+    <Style TargetType="yummy:PancakeView" x:Key="ServiceBoxProvider">
+        <Setter Property="BackgroundColor" Value="#041E31"></Setter>
+        <Setter Property="Shadow">
+            <Setter.Value>
+                <yummy:DropShadow Color="{DynamicResource GrayLighter}"
+                                  ></yummy:DropShadow>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="CornerRadius" Value="30"></Setter>
+    </Style>
+
+
+</ResourceDictionary>

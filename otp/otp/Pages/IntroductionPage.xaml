@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             NavigationPage.HasNavigationBar="False"
+          
+             x:Class="otp.Pages.IntroductionPage">
+    <Grid BackgroundColor="White">
+
+        <xct:MediaElement x:Name="mediaElement" Source="ms-appx:///Pipeline.mp4" AutoPlay="True"
+                           Aspect="Fill" 
+        
+                          HorizontalOptions="FillAndExpand" ShowsPlaybackControls="True"></xct:MediaElement>
+
+        <Grid RowDefinitions="Auto, Auto, Auto" HeightRequest="280" Margin="30,30,30,100"
+             
+              RowSpacing="40" VerticalOptions="End">
+
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="{Binding Description1}" FontFamily="DG" TextColor="#2E4159" 
+                                  FontAttributes="Bold" FontSize="18" />
+                            <Span Text="زور موقعنا" TextColor="#E8AA42" FontFamily="DG" TextDecorations="Underline"
+                                  FontSize="20" >
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding OpenLinkCommand}" />
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text="{Binding Description2}" FontFamily="DG" TextColor="White" 
+                                  FontAttributes="Bold" FontSize="18" />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Button Grid.Row="1" 
+                         VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"
+                        Text="تسجيل الدخول" Command="{Binding GoRgister}" HeightRequest="50 "
+                             BackgroundColor="#E8AA42" TextColor="White" FontSize="16" 
+                            BorderColor="#2E4159" BorderWidth="2" FontFamily="DG"
+                            WidthRequest="154" CornerRadius="25"
+                            FontAttributes="Bold" ></Button>
+
+        </Grid>
+    </Grid>
+</ContentPage>

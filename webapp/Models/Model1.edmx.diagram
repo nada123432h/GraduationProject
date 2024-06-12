@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8d59768bc429441fb842d4ff3d439c14" Name="Diagram1">
+        <EntityTypeShape EntityType="ServicesModel.TableOfProvider" Width="1.5" PointX="5.75" PointY="5.75" />
+        <EntityTypeShape EntityType="ServicesModel.TbOfRequest" Width="1.5" PointX="8" PointY="1" />
+        <EntityTypeShape EntityType="ServicesModel.TbProvider" Width="1.5" PointX="3" PointY="3.625" />
+        <EntityTypeShape EntityType="ServicesModel.TbServiceProvider" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="ServicesModel.TbService" Width="1.5" PointX="0.75" PointY="2.875" />
+        <EntityTypeShape EntityType="ServicesModel.TbUser" Width="1.5" PointX="5.75" PointY="1.875" />
+        <EntityTypeShape EntityType="ServicesModel.TbRating" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="ServicesModel.VwRequestsProvider" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="ServicesModel.VwServiceProvider" Width="1.5" PointX="7.75" PointY="5.75" />
+        <EntityTypeShape EntityType="ServicesModel.VwServic" Width="1.5" PointX="4.75" PointY="8.75" />
+        <AssociationConnector Association="ServicesModel.FK_TbOfRequests_TbUsers" />
+        <AssociationConnector Association="ServicesModel.FK_TbProviders_TbServices" />
+        <AssociationConnector Association="ServicesModel.FK_TbServiceProviders_TbServices" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

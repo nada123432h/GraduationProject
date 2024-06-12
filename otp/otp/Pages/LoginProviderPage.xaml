@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Res="clr-namespace:otp.Resources"
+             xmlns:controls="clr-namespace:otp.Controls"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"       
+             
+             NavigationPage.HasNavigationBar="False"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+            xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             x:Class="otp.Pages.LoginProviderPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+
+            <Style TargetType="Entry" x:Key="InvalidStyle">
+                <Setter Property="TextColor" Value="Red"></Setter>
+            </Style>
+
+            <Style TargetType="Entry" x:Key="ValidStyle">
+                <Setter Property="TextColor" Value="Black"></Setter>
+            </Style>
+ 
+    </ResourceDictionary>
+        </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" Padding="20,0,20,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+               
+                    
+                </Grid.RowDefinitions>
+                
+                <Path Grid.Row="0" Margin="-20,0" Data="m132.34,154.23002l209.00002,0l0,0.66666c-66.50001,28 -156.50001,72.87853 -209.00002,96.76573l0,-97.43239z"
+                      Stroke="#1C375C" Fill="#070F2B" HeightRequest="220" Aspect="Fill" ></Path>
+                <Image Grid.Row="0" Margin="0,0,0,0" Source="Logo.png" Aspect="AspectFit" HeightRequest="180" WidthRequest="80"></Image>
+                <Label  Grid.Row="1" Text="مرحبا بك" FontFamily="DG"  FontSize="24" FontAttributes="Bold" TextColor="#1C375C" HorizontalOptions="CenterAndExpand"></Label>
+                <Label Grid.Row="2"  Text="تسجيل الدخول كمزود خدمه" TextColor="#1C375C" FontFamily="DG"  FontSize="24"  HorizontalOptions="CenterAndExpand"></Label>
+
+                <StackLayout Grid.Row="3" VerticalOptions="CenterAndExpand">
+                    <Frame CornerRadius="15"   WidthRequest="350"
+                               Margin="0,20,0,0"
+                               HorizontalOptions="CenterAndExpand"
+                               BorderColor="DarkGray"
+                               HasShadow="True" 
+                               HeightRequest="6 " Grid.Row="2" >
+
+
+                        <Entry   FlowDirection="RightToLeft" x:Name="txtEmail" 
+                               Text="{Binding txtemail}" Keyboard="Email"
+                            
+                               ClearButtonVisibility="WhileEditing"
+                                     PlaceholderColor="Gray"
+                               Placeholder="البريد الالكتروني"  
+                                     
+                               Margin="0,-30,-5,-30" 
+                                          FontFamily="DG"
+                               xct:TouchEffect.HoveredBackgroundColor="White"
+                               
+                               xct:TouchEffect.NormalBackgroundColor="Transparent"
+                               VerticalOptions="FillAndExpand">
+
+                            <Entry.Behaviors >
+                                <xct:EmailValidationBehavior
+                   
+                      
+                        DecorationFlags="Trim"
+                 InvalidStyle="{StaticResource InvalidStyle}"
+                     Flags="ValidateOnValueChanging"
+                                         ValidStyle="{StaticResource ValidStyle}"
+                        
+                 
+                    
+                    >
+
+
+                                </xct:EmailValidationBehavior>
+
+                            </Entry.Behaviors>
+
+                        </Entry>
+
+                    </Frame>
+                  
+
+                        <yummy:PancakeView CornerRadius="15" Grid.Row="4" BackgroundColor="White" 
+                                           WidthRequest="350"
+                                           HeightRequest="45"
+                                    
+                               Margin="0,10,0,0"
+                               HorizontalOptions="FillAndExpand"
+                        
+                           
+                             
+                              
+                             >
+                            <yummy:PancakeView.Border>
+                                <yummy:Border Color="DarkGray" Thickness="2"></yummy:Border>
+                            </yummy:PancakeView.Border>
+                            <yummy:PancakeView.Shadow >
+                                <yummy:DropShadow></yummy:DropShadow>
+                            </yummy:PancakeView.Shadow>
+                            <StackLayout Grid.Row="3" Orientation="Horizontal"  Margin="20,5,10,10"   >
+
+
+
+
+
+                                <Image   x:Name="imgpass"  HeightRequest="25"  VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand"   >
+                                    <Image.Source >
+                                        <FontImageSource Glyph=""  Color="#334257" FontFamily="FontIconSolid"></FontImageSource>
+                                    </Image.Source>
+                                    <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+
+                                <Entry   Text="{Binding txtPass}"
+                          Margin="0,-30,0,-30" 
+                                            TextColor="Black"
+                                        HeightRequest="12"
+                                        Grid.ColumnSpan="2"
+                            
+                      PlaceholderColor="Gray"
+                                              FontFamily="DG"
+                                              xct:TouchEffect.HoveredBackgroundColor="White"
+                                        xct:TouchEffect.NormalBackgroundColor="Transparent"
+                                 xct:ShadowEffect.Radius="23"
+                                        
+                                     x:Name="PassProvider" Placeholder="كلمه المرور" ClearButtonVisibility="WhileEditing" ></Entry>
+
+
+
+                            </StackLayout>
+                        </yummy:PancakeView>
+
+
+                  
+                    <Label Grid.Row="4" TextColor="#B31312" FontAttributes="Bold" 
+                           TextDecorations="Underline"  FontFamily="DG"  Text="نسيت كلمه المرور؟" Padding="0,10,0,0" VerticalOptions="EndAndExpand"  HorizontalOptions="EndAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoToForget}"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <StackLayout Grid.Row="4" VerticalOptions="EndAndExpand" Padding="0,20,0,0">
+                    <Button  Text="تسجيل الدخول" Command="{Binding NavigateToHome}" 
+                              xct:TouchEffect.PressedScale=".9"
+                            xct:TouchEffect.PressedOpacity=".7"
+  
+            xct:TouchEffect.PressedAnimationDuration="100"
+                             FontFamily="DG" 
+                        BackgroundColor="#1C375C" TextColor="White" CornerRadius="20">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonState">
+                                <VisualState x:Name="Normal">
+                                    <VisualState.Setters>
+                                        <Setter Property="Scale" Value="1">
+
+                                        </Setter>
+                                    </VisualState.Setters>
+
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Property="Scale" Value=".9">
+
+                                        </Setter>
+                                    </VisualState.Setters>
+
+                                </VisualState>
+
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                    </Button>
+
+                </StackLayout>
+              
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

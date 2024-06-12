@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="ServicesEntities-Web.config Connection String" description="ServicesEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.Model1.csdl|res://*/Models.Model1.ssdl|res://*/Models.Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;  &#xD;&#xA;  &#xD;&#xA;  data source=SQL5113.site4now.net;initial catalog=db_aa807f_otp;user id=db_aa807f_otp_admin;password=Asa78220;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Otp\\webapp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ServicesEntities']/@connectionString" />
+  </parameter>
+</parameters>

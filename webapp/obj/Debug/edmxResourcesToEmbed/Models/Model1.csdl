@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ServicesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ServicesEntities" annotation:LazyLoadingEnabled="false">
+    <EntitySet Name="TableOfProviders" EntityType="ServicesModel.TableOfProvider" />
+    <EntitySet Name="TbOfRequests" EntityType="ServicesModel.TbOfRequest" />
+    <EntitySet Name="TbProviders" EntityType="ServicesModel.TbProvider" />
+    <EntitySet Name="TbServiceProviders" EntityType="ServicesModel.TbServiceProvider" />
+    <EntitySet Name="TbServices" EntityType="ServicesModel.TbService" />
+    <EntitySet Name="TbUsers" EntityType="ServicesModel.TbUser" />
+    <EntitySet Name="TbRatings" EntityType="ServicesModel.TbRating" />
+    <EntitySet Name="VwRequestsProviders" EntityType="ServicesModel.VwRequestsProvider" />
+    <EntitySet Name="VwServiceProviders" EntityType="ServicesModel.VwServiceProvider" />
+    <EntitySet Name="VwServics" EntityType="ServicesModel.VwServic" />
+    <AssociationSet Name="FK_TbOfRequests_TbUsers" Association="ServicesModel.FK_TbOfRequests_TbUsers">
+      <End Role="TbUser" EntitySet="TbUsers" />
+      <End Role="TbOfRequest" EntitySet="TbOfRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbProviders_TbServices" Association="ServicesModel.FK_TbProviders_TbServices">
+      <End Role="TbService" EntitySet="TbServices" />
+      <End Role="TbProvider" EntitySet="TbProviders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbServiceProviders_TbServices" Association="ServicesModel.FK_TbServiceProviders_TbServices">
+      <End Role="TbService" EntitySet="TbServices" />
+      <End Role="TbServiceProvider" EntitySet="TbServiceProviders" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="TableOfProvider">
+    <Key>
+      <PropertyRef Name="providerid" />
+    </Key>
+    <Property Name="providerid" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TbOfRequest">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProviderId" Type="Int32" />
+    <Property Name="ServiceId" Type="Int32" />
+    <Property Name="Descriptions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageNameProblem" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ServiceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StatusOfRequest" Type="Boolean" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="IsResponse" Type="Boolean" />
+    <NavigationProperty Name="TbUser" Relationship="ServicesModel.FK_TbOfRequests_TbUsers" FromRole="TbOfRequest" ToRole="TbUser" />
+  </EntityType>
+  <EntityType Name="TbProvider">
+    <Key>
+      <PropertyRef Name="ProvicderId" />
+    </Key>
+    <Property Name="ProvicderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProviderName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Lat" Type="Double" Nullable="false" />
+    <Property Name="Long" Type="Double" Nullable="false" />
+    <Property Name="ImageName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Rating" Type="Double" />
+    <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ratting" Type="Double" />
+    <Property Name="ServiceId" Type="Int32" />
+    <NavigationProperty Name="TbService" Relationship="ServicesModel.FK_TbProviders_TbServices" FromRole="TbProvider" ToRole="TbService" />
+  </EntityType>
+  <EntityType Name="TbServiceProvider">
+    <Key>
+      <PropertyRef Name="ServiceId" />
+      <PropertyRef Name="ProviderId" />
+    </Key>
+    <Property Name="ServiceId" Type="Int32" Nullable="false" />
+    <Property Name="ProviderId" Type="Int32" Nullable="false" />
+    <Property Name="ServiceCost" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <NavigationProperty Name="TbService" Relationship="ServicesModel.FK_TbServiceProviders_TbServices" FromRole="TbServiceProvider" ToRole="TbService" />
+  </EntityType>
+  <EntityType Name="TbService">
+    <Key>
+      <PropertyRef Name="ServiceId" />
+    </Key>
+    <Property Name="ServiceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ServiceNameAr" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ServiceIcon" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TbProviders" Relationship="ServicesModel.FK_TbProviders_TbServices" FromRole="TbService" ToRole="TbProvider" />
+    <NavigationProperty Name="TbServiceProviders" Relationship="ServicesModel.FK_TbServiceProviders_TbServices" FromRole="TbService" ToRole="TbServiceProvider" />
+  </EntityType>
+  <EntityType Name="TbUser">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TbOfRequests" Relationship="ServicesModel.FK_TbOfRequests_TbUsers" FromRole="TbUser" ToRole="TbOfRequest" />
+  </EntityType>
+  <EntityType Name="TbRating">
+    <Key>
+      <PropertyRef Name="ProviderId" />
+    </Key>
+    <Property Name="ProviderId" Type="Int32" Nullable="false" />
+    <Property Name="Rating" Type="Double" />
+  </EntityType>
+  <EntityType Name="VwRequestsProvider">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="ProviderId" Type="Int32" />
+    <Property Name="Descriptions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageNameProblem" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StatusOfRequest" Type="Boolean" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsResponse" Type="Boolean" />
+    <Property Name="CustomerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VwServiceProvider">
+    <Key>
+      <PropertyRef Name="ProvicderId" />
+      <PropertyRef Name="ProviderName" />
+      <PropertyRef Name="Lat" />
+      <PropertyRef Name="Long" />
+    </Key>
+    <Property Name="ProvicderId" Type="Int32" Nullable="false" />
+    <Property Name="ProviderName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Lat" Type="Double" Nullable="false" />
+    <Property Name="Long" Type="Double" Nullable="false" />
+    <Property Name="ImageName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Rating" Type="Double" />
+    <Property Name="ratting" Type="Double" />
+    <Property Name="ServiceId" Type="Int32" />
+    <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VwServic">
+    <Key>
+      <PropertyRef Name="ServiceId" />
+      <PropertyRef Name="ServiceName" />
+    </Key>
+    <Property Name="ServiceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ServiceIcon" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ServiceNameAr" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_TbOfRequests_TbUsers">
+    <End Type="ServicesModel.TbUser" Role="TbUser" Multiplicity="0..1" />
+    <End Type="ServicesModel.TbOfRequest" Role="TbOfRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbUser">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="TbOfRequest">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbProviders_TbServices">
+    <End Type="ServicesModel.TbService" Role="TbService" Multiplicity="0..1" />
+    <End Type="ServicesModel.TbProvider" Role="TbProvider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbService">
+        <PropertyRef Name="ServiceId" />
+      </Principal>
+      <Dependent Role="TbProvider">
+        <PropertyRef Name="ServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbServiceProviders_TbServices">
+    <End Type="ServicesModel.TbService" Role="TbService" Multiplicity="1" />
+    <End Type="ServicesModel.TbServiceProvider" Role="TbServiceProvider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbService">
+        <PropertyRef Name="ServiceId" />
+      </Principal>
+      <Dependent Role="TbServiceProvider">
+        <PropertyRef Name="ServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

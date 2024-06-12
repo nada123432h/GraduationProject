@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<controls:Custompage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+         xmlns:controls="clr-namespace:otp.Controls"
+                     
+                       xmlns:xct="http://xamarin.com/schemas/2020/toolkit"     
+             x:Class="otp.Pages.IntroPage">
+    <ContentPage.Content>
+        <Grid>
+            <Image Grid.Row="0" Margin="0,0,0,0" VerticalOptions="StartAndExpand" 
+                   HorizontalOptions="FillAndExpand" Opacity="1" Source="pr.png" ></Image>
+            <BoxView>
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Offset="0" Color="Transparent"></GradientStop>
+
+                        <GradientStop Offset="0.6" Color="#192655"></GradientStop>
+
+                        <GradientStop Offset="1"  Color="#153448"></GradientStop>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+            <Grid RowDefinitions="auto,auto,auto,auto,auto" RowSpacing="10" Margin="30,0,30,30"
+              HeightRequest="300" VerticalOptions="EndAndExpand">
+
+
+                <CarouselView IndicatorView="indicator" FlowDirection="RightToLeft" x:Name="caView" ItemsSource="{Binding ListSliders }"   HorizontalOptions="EndAndExpand">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate  >
+                            <StackLayout Spacing="20" >
+                                <Label Text="{Binding Description1}" FontFamily="DG" TextColor="#E8AA42"
+                        
+                                       FontAttributes="Bold" FontSize="20" HorizontalOptions="Start"></Label>
+
+
+                                <Label Text="{Binding Description2}"  FontFamily="DG" TextColor="White"
+                                  
+                            Grid.Row="1"
+                                   FontAttributes="None" FontSize="18" HorizontalOptions="Start"></Label>
+
+
+
+                                
+
+
+                              
+
+
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+              
+
+
+                <IndicatorView x:Name="indicator"   Grid.Row="1" 
+                           Padding="0,0,0,-10"
+                           IndicatorsShape="Square"
+
+                            HorizontalOptions="Center" SelectedIndicatorColor="Transparent" 
+                           IndicatorColor="Transparent">
+                    <IndicatorView.IndicatorTemplate>
+                        <DataTemplate>
+
+                            <ImageButton 
+                    >
+                                <ImageButton.Source>
+                                    <FontImageSource Glyph=""  Color="#E8AA42" FontFamily="FontIconSolid"></FontImageSource>
+                                </ImageButton.Source>
+                            </ImageButton>
+
+                        </DataTemplate>
+                    </IndicatorView.IndicatorTemplate>
+                </IndicatorView>
+
+                <StackLayout Orientation="Horizontal" Padding="0,0,0,30" Spacing="20" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Button Command="{Binding GoRgister}" 
+                            x:Name="btnIntro"
+                             xct:TouchEffect.PressedBackgroundColor="White"
+                         xct:TouchEffect.PressedScale=".9"
+                                xct:TouchEffect.PressedOpacity=".6"
+                            xct:TouchEffect.PressedRotation="10"  
+                              xct:TouchEffect.PressedAnimationDuration="1000"
+     
+                            Text="ابدأ الان" FontSize="16" HeightRequest="50 "
+                            BorderColor="White" BorderWidth="2" FontFamily="DG" TextColor="White"
+                            BackgroundColor="#2e4159 " WidthRequest="154" CornerRadius="25"
+                            FontAttributes="Bold"  ></Button>
+                   
+                   
+
+
+                </StackLayout>
+
+  
+
+
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</controls:Custompage>

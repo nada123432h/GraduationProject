@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             
+             NavigationPage.HasNavigationBar="False"
+               BackgroundColor="#070F2B"
+             x:Class="otp.Pages.ChosePage">
+    <ContentPage.Content>
+        <StackLayout>
+            
+       
+    
+          
+            <Grid
+          
+            VerticalOptions="CenterAndExpand"
+            RowSpacing="20"
+           >
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                    <RowDefinition Height="120" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <!--<Path Data="m559.96688,125.56515c-21.53924,0 -38.99997,10.96781 -38.99997,24.49914c0,4.62315 2.06424,8.94371 5.61595,12.63227l-5.61595,10.31451l15.63613,-3.36103c6.51575,3.07082 14.58886,4.9151 23.36384,4.9151c21.53929,0 38.99999,-10.9696 38.99999,-24.50086s-17.4607,-24.49914 -38.99999,-24.49914zm2.73584,38.35262l-5.4855,0l0,-4.40773l5.4855,0l0,4.40773zm0,-9.11461l0,1.45798l-5.4855,0l0,-1.79444c0,-5.41536 7.35742,-6.2734 7.35742,-10.11864c0,-1.75531 -1.87192,-3.10113 -4.32614,-3.10113c-2.54085,0 -4.77192,1.56839 -4.77192,1.56839l-3.12054,-3.25067c0,0 3.0759,-2.68987 8.38235,-2.68987c5.04235,0 9.72234,2.6151 9.72234,7.02111c0.00267,6.16663 -7.75802,6.87513 -7.75802,10.90728l0,0z" 
+                  Aspect="Uniform" Margin="20" Fill="#FF7700" HorizontalOptions="CenterAndExpand" Grid.Row="1"/>-->
+                <Label
+                      
+                
+                        Margin="0,0,0,0"
+                    Grid.Row="1"
+                        HorizontalOptions="CenterAndExpand"
+            
+                        Text="حدد دورك"
+                FontSize="40"
+                            FontFamily="DG"
+                        TextColor="White" />
+                <yummy:PancakeView BackgroundColor="White" Grid.Row="2" BackgroundGradientEndPoint="0,1" BackgroundGradientStartPoint="0,0" Padding="20" CornerRadius="30" HorizontalOptions="CenterAndExpand">
+                    <yummy:PancakeView.Border>
+                        <yummy:Border Color="#FF7700" Thickness="6"></yummy:Border>
+
+                    </yummy:PancakeView.Border>
+                    <yummy:PancakeView.BackgroundGradientStops>
+                        <yummy:GradientStopCollection>
+                            <yummy:GradientStop Color="White" Offset="0"></yummy:GradientStop>
+
+                            <yummy:GradientStop Color="White" Offset="1"></yummy:GradientStop>
+                        </yummy:GradientStopCollection>
+                    </yummy:PancakeView.BackgroundGradientStops>
+                    <StackLayout Orientation="Horizontal" >
+                      
+                        <Image Source="provider.jpeg" HeightRequest="100">
+                            
+                        </Image>
+                        <Label Text="التسجيل كمقدم خدمه" FontSize="20" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontFamily="DG"></Label>
+                   
+                    </StackLayout>
+                    <yummy:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoLoginProvider}"></TapGestureRecognizer>
+                    </yummy:PancakeView.GestureRecognizers>
+                    <VisualStateManager.VisualStateGroups>
+                       
+                    </VisualStateManager.VisualStateGroups>
+
+                </yummy:PancakeView>
+                <yummy:PancakeView Grid.Row="3" WidthRequest="300" BackgroundColor="White" BackgroundGradientEndPoint="1,1" BackgroundGradientStartPoint="0,0" 
+                                   Padding="20" CornerRadius="30" HorizontalOptions="CenterAndExpand">
+                    <yummy:PancakeView.Border>
+                        <yummy:Border Color="#FF7700" Thickness="6"></yummy:Border>
+
+                    </yummy:PancakeView.Border>
+                    <yummy:PancakeView.BackgroundGradientStops>
+                        <yummy:GradientStopCollection>
+                            <yummy:GradientStop Color="White" Offset="0"></yummy:GradientStop>
+
+                            <yummy:GradientStop Color="White" Offset="1"></yummy:GradientStop>
+                        </yummy:GradientStopCollection>
+                    </yummy:PancakeView.BackgroundGradientStops>
+                    <StackLayout Orientation="Horizontal" HeightRequest="200"  HorizontalOptions="CenterAndExpand" Spacing="20" >
+
+                        <Image   >
+                            <Image.Source>
+                                <FontImageSource Glyph="" Color="#070F2B" FontFamily="FontIconSolid"></FontImageSource>
+                            </Image.Source>
+                        </Image>
+                        <Label Text="التسجيل كمستخدم " FontSize="20" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontFamily="DG"></Label>
+                    </StackLayout>
+                    <yummy:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoLogin}"></TapGestureRecognizer>
+                    </yummy:PancakeView.GestureRecognizers>
+                </yummy:PancakeView>
+
+
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

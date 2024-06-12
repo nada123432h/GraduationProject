@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:vm="clr-namespace:otp.ViewModels"
+             xmlns:Res="clr-namespace:otp.Resources"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:cn="clr-namespace:otp.Converters"
+             BackgroundColor="#FEFBF6"
+             xmlns:controls="clr-namespace:otp.Controls" xmlns:m1="clr-namespace:otp.Model2"
+             x:Class="otp.Pages.ChatPage">
+
+    <ContentPage.Resources>
+        <cn:MessageBackgroundColorConverter x:Key="MessageBackgroundColorConverter" />
+        <cn:MessageTextColorConverter x:Key="MessageTextColorConverter" />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid RowDefinitions="50,*" Padding="18">
+
+
+            <StackLayout Orientation="Horizontal">
+                <Image Source="ch.png" HorizontalOptions="StartAndExpand" ></Image>
+                <Label  Text="{Res:Translate lblChatAsk}" FontSize="18"   HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center"
+                       FontFamily="DG"
+                       TextColor="#222831" ></Label>
+            </StackLayout>
+
+            <Grid Grid.Row="1"
+        RowDefinitions="*,Auto">
+
+                <!--Chat area section-->
+                <ScrollView>
+                    <CollectionView 
+            x:Name="chatCollectionView"
+            ItemsSource="{Binding ChatList}"
+            SelectionMode="None"
+            ItemsUpdatingScrollMode="KeepLastItemInView"
+            VerticalOptions="FillAndExpand">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="m1:Chat">
+                                <StackLayout 
+                        Padding="5">
+                                    <yummy:PancakeView 
+                          
+                                CornerRadius="30"
+                            Padding="15"
+                            BackgroundColor="{Binding IsIncoming, Converter={StaticResource MessageBackgroundColorConverter}}"
+                       >
+                                        <yummy:PancakeView.Border>
+                                            <yummy:Border Color="Orange" Thickness="4"></yummy:Border>
+                                        </yummy:PancakeView.Border>
+                                        <Grid 
+                                RowDefinitions="Auto,Auto"
+                                                Margin="0,0,0,0"
+                                RowSpacing="10">
+                                            <yummy:PancakeView
+                                    Grid.Column="0"
+                                  
+                                    WidthRequest="40"
+                                        CornerRadius="30"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="StartAndExpand">
+                                                <Label 
+                                        HorizontalTextAlignment="Center"
+                                        VerticalTextAlignment="Start"
+                                            TextColor="#CBF9DA"
+                                        Margin="0,0,0,0"
+                                        Text="{Binding User}" FontAttributes="Bold"/>
+                                            </yummy:PancakeView>
+                                            <ScrollView      Grid.RowSpan="2"  Grid.Row="1">
+
+
+                                                <Editor
+                               
+                                Margin="0,0,0,-10" 
+                                       FontSize="18"
+                                        IsReadOnly="True"
+                                    Text="{Binding Message}"
+                                 TextColor="#F5F5F5"
+                                                    FontFamily="DG"
+                                  
+                                
+                                    />
+                                            </ScrollView>
+                                        </Grid>
+
+                                    </yummy:PancakeView>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout 
+                    Orientation="Vertical" />
+                        </CollectionView.ItemsLayout>
+                    </CollectionView>
+                </ScrollView>
+
+
+                <!--Chat typing section-->
+                <yummy:PancakeView
+            Grid.Row="1"
+            Padding="5"
+            Margin="5"
+                CornerRadius="15"
+                        HeightRequest="50"
+            BackgroundColor="#222831">
+                    <Grid               
+                ColumnDefinitions="*,Auto"
+                ColumnSpacing="10">
+                        <Entry 
+                    Text="{Binding ChatText, Mode=TwoWay}"
+                                HeightRequest="30"
+                    Margin="0,-30,0,-30"
+                               
+                                FontFamily="DG"
+                                
+                    Placeholder="ارسل سؤالك"
+                                
+                        TextColor="White"
+                             PlaceholderColor="White"
+                        />
+                        <Image
+                    Grid.Column="1"
+                        Margin="10,0,0,0"
+               
+                   
+                    HeightRequest="50"
+                    WidthRequest="25"
+                    >
+                            <Image.Source>
+                                <FontImageSource Glyph="" FontFamily="FontIconSolid">
+
+                                </FontImageSource>
+                            </Image.Source>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SendCommand}"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Grid>
+
+                </yummy:PancakeView>
+            </Grid>
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
